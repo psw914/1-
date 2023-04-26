@@ -1,0 +1,183 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{% static 'css/1cha.css' %}?after">
+  <title>1cha</title>
+</head>
+
+<body class="no-scroll">
+  <div id="wrap">
+    <header>
+
+      <ul class="hn">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+
+
+
+    </header>
+
+    <main>
+
+      <section>
+        <div class="subSection">
+          <img src="../../static/img/svbbg1.svg" alt="svbbg1">
+
+          <!-- <div class="dummyBox1"></div> -->
+
+          <div class="sectionBox1">
+            <div class="mainBox1">
+              <p>품목현황</p>
+              <div class="subBox1">
+                <div class="Box1_1">
+                  <div class="tableBox">
+                    <table>
+                      <thead>
+                        <tr>
+                          <!-- <th>품목</th>
+                          <th>가격</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in gdata2022 %}
+                        <tr>
+                          <th scope="row">
+                            {{i.cook_name}}
+                          </th>
+                          <td>
+                            {{ i.unit_price }} 원
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+                
+              </div>
+              <p>최신현황</p>
+              
+              <div class="subBox2">
+                <div class="Box2_1">
+                  <canvas id="myChart1" style="width:95%; height:100%;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="mainBox2">
+              <p>TOP 5</p>
+              <div class="Box2_1">
+                <div class="sub2Cdiv">
+                  <span>
+                    1996
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht1" style="width:100%; height:85%;"></canvas>
+                </div>
+                <div class="sub2Cdiv">
+                  <span>1999
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht2" style="width:100%; height:85%;"></canvas>
+                </div>
+              </div>
+              <div class="Box2_1">
+                <div class="sub2Cdiv">
+                  <span>2005
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht3" style="width:100%; height:85%;"></canvas>
+                </div>
+                <div class="sub2Cdiv">
+                  <span>2010
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht4" style="width:100%; height:85%;"></canvas>
+                </div>
+              </div>
+
+              <div class="Box2_1">
+                <div class="sub2Cdiv">
+                  <span>2015
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht5" style="width:100%; height:85%;"></canvas>
+                </div>
+                <div class="sub2Cdiv">
+                  <span>2020
+                    <!-- <small>year</small> -->
+                  </span>
+                  <canvas id="s1B2cht6" style="width:100%; height:85%;"></canvas>
+                </div>
+
+              </div>
+
+              <!-- <div class="LBox2_1">
+                  <div class="sub2Cdiv">
+                    <span>2022</span>
+                    <canvas id="s1B2cht7" style="width:100%; height:85%;"></canvas>
+                  </div> -->
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section>
+        <div class="subSection">
+          <img src="../../static/img/svbbg1.svg" alt="svbbg2">
+          <!-- <div class="dummyBox1"></div> -->
+          <div class="sectionBox2">
+            1234
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="subSection">
+          <img src="../../static/img/svbbg1.svg" alt="svbbg3">
+          <div class="sectionBox3">
+            3 4 5 6
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="subSection">
+          <img src="../../static/img/svbbg1.svg" alt="svbbg4">
+          <div class="sectionBox4">
+            4 5 6 7
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="subSection">
+          <img src="../../static/img/svbbg1.svg" alt="svbbg5">
+          <div class="sectionBox5">
+            5 6 7 8
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+
+</html>
+
+
+<!-- <script src=" static 'js/1cha.js'?after"></script> -->
+{% include "first/js.html" %}

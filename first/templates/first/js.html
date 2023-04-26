@@ -1,0 +1,374 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0 "></script>
+<!-- <script src=" static 'js/1cha.js'?after"></script> -->
+<!-- <script src=" static 'js/chartjs-plugin-doughnutlabel.js' "></script> -->
+
+
+<script>
+
+  // 공통
+  let elNav = document.querySelector("header > ul");
+  let datas = document.querySelectorAll("main > section");
+  const title = document.querySelectorAll(".hn li")
+  let curIdx = 0;
+
+  function handleClick(event) {
+    // div에서 모든 "click" 클래스 제거
+    title.forEach((e) => {
+      e.classList.remove("clicked");
+    });
+    // 클릭한 div만 "click"클래스 추가
+    event.target.classList.add("clicked");
+  }
+
+  title.forEach((e) => {
+    e.addEventListener("click", handleClick);
+  });
+
+  function doScroll(sidx) {
+    sidx = sidx < 0 ? 0 : sidx;
+    sidx = sidx > datas.length - 1 ? datas.length - 1 : sidx;
+
+    curIdx = sidx;
+
+    datas[curIdx].scrollIntoView({
+      block: "start", inline: "start", behavior: "auto"
+    });
+  }
+
+
+  Array.from(elNav.children, function (elMenu, idx, elMenus) {
+
+
+    elMenu.addEventListener("click", function () {
+
+      // const clickedClass = "clicked";
+      // if(elMenu.classList.contains(clickedClass)){
+      //   elMenu.classList.remove(clickedClass);
+      // } else {
+      //   elMenu.classList.add(clickedClass);
+      // }
+
+
+      doScroll(idx);
+    });
+
+  });
+
+
+
+
+
+
+
+
+  // *************************11111111111111111111
+
+  const ctx = document.getElementById('myChart1');
+  // const maxdata2 = {
+  //   data:[60000],
+  //   backgroundColor = "rgb(234, 234, 234,0.6)",
+  //   borderColor = "rgb(234, 234, 234)",
+  // };
+
+  new Chart(ctx, {
+    type: 'bar',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        
+        {% for i in data2022 %} "{{i.cook_name}}", {% endfor %}
+      ],
+      
+      datasets: [
+        {
+        label: "가격",
+        data: [
+          {% for i in data2022 %} {{ i.unit_price }}, {% endfor %}
+          ],
+        backgroundColor:"rgb(90, 90, 90)",
+
+      },
+      {
+        data:[{% for i in data2022 %} 40000, {% endfor %}],
+        backgroundColor:"rgb(90, 90, 90,0.2)",
+      },
+    ]
+    },
+    options: {
+    responsive: false,
+    // indexAxis:"y",
+    // spanGaps:true,
+    plugins: {
+      legend: {
+        labels: {
+
+        },
+        display: false,
+      },
+
+    },
+
+    scales: {
+      x: {
+        stacked:true,
+        title: {
+          display:true,
+          font: {
+            size: 16,
+            family: "'Noto Sans KR', fantasy",
+            weight: 10,
+          },
+          text:"2022년",
+        },
+
+        grid: {
+          display: false,
+          tickLength: 10,
+        }
+      },
+      
+     
+      y: {
+        afterDataLimits: (scale) => {
+        scale.max = scale.max * 0.6;
+      },
+        stacked:true,
+        axis: 'y',
+        title: { 
+          display: true,
+          align: 'start',
+          color: '#808080',
+          font: {
+            size: 10,
+            family: "'Noto Sans KR', sans-serif",
+            weight: 10,
+          },
+          text: '단위: 원'
+        },
+        grid: {
+          display: false
+        },
+        beginAtZero: true,
+        // afterDataLimits:(scale) => {
+          //   scale.max * 50;
+          // },
+        },
+         
+      }
+    }
+  });
+
+
+
+  //--------------------------------- subBox2
+  const DATA_COUNT = 5;
+  const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+  // -------------------------------- 차트옵션
+  const datalabel = "가격";
+
+  const backgroundColor = [
+    'rgb(171, 130, 18)',
+    'rgb(16, 98, 10)',
+    'rgb(90, 90, 90)',
+    'rgb(0, 56, 0)',
+    'rgb(75, 75, 75)',
+  ];
+  const borderColor = ["rgb(234, 234, 234)"];
+
+  const cutout = "80%";
+
+  const options = {
+    responsive: false,
+
+
+    plugins: {
+
+      // datalabels:{
+      //   anchor: "center",
+      //   color:"#000",
+      //   clamp:true,
+      //   clip:true,
+      //   offset:6,
+      //   align:"180",
+
+      // },
+      legend: {
+        // position: "top",
+        display: false,
+      },
+    }
+
+  };
+
+
+
+
+  const s1B2cht1 = document.getElementById('s1B2cht1');
+
+  new Chart(s1B2cht1, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data1996Top5 %}"{{i.cook_name}}",{% endfor %}
+      
+      ],
+    datasets: [{
+      label: datalabel,
+      // doughnutPercentage:0.5,
+      data: [
+        {% for i in data1996Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // hoverOffset: 8,
+    backgroundColor,
+    borderColor,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht2 = document.getElementById('s1B2cht2');
+
+  new Chart(s1B2cht2, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data1999Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data1999Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht3 = document.getElementById('s1B2cht3');
+
+  new Chart(s1B2cht3, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data2005Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data2005Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht4 = document.getElementById('s1B2cht4');
+
+  new Chart(s1B2cht4, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data2010Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data2010Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht5 = document.getElementById('s1B2cht5');
+
+  new Chart(s1B2cht5, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data2015Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data2015Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht6 = document.getElementById('s1B2cht6');
+
+  new Chart(s1B2cht6, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data2020Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data2020Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+  const s1B2cht7 = document.getElementById('s1B2cht7');
+
+  new Chart(s1B2cht7, {
+    type: 'doughnut',
+    // plugins: [ChartDataLabels],
+    data: {
+      labels: [
+        {% for i in data2022Top5 %} "{{i.cook_name}}", {% endfor %}
+      ],
+    datasets: [{
+      label: datalabel,
+      data: [
+        {% for i in data2022Top5 %} {{ i.unit_price }}, {% endfor %}
+  ],
+    // data: Utils.numbers(NUMBER_CFG),
+    backgroundColor,
+    borderColor,
+    // hoverOffset: 8,
+    cutout,
+      }]
+    },
+    options,
+  });
+
+
+  // 22222222222222222222222
+
+</script>

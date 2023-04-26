@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="subWrap">
+      <header>
+        <nav>
+          메뉴
+        </nav>
+        <div class="M_text">
+          박성우
+        </div>
+        <div class="search">
+          검색
+        </div>
+      </header>
+      <!-- header 끝 -->
+      <main>
+        <div id="M_content">
+
+          배너
+          <!-- <img src="images/a.jpg"> -->
+        </div>
+
+        <div id="blackbox1"></div>
+
+        <section id="st1">
+          <div class="sub_ct1">
+            콘텐츠1
+          </div>
+          <div id="blackbox2"></div>
+          <div class="sub_ct2">
+            콘텐츠2
+          </div>
+        </section>
+        
+        <div id="blackbox1"></div>
+        
+        <div id="midsection">
+        
+          <div class="subsection">
+            <div class="sub_ct3">
+              콘텐츠3
+            </div>
+             <div id="blackbox1"></div>
+            <section id="st2">
+            
+              <!-- <div id="blackbox2"></div> -->
+              <div class="sub_ct5">
+                콘텐츠5
+              </div>
+            
+              <div id="blackbox2"></div>
+            
+              <div class="sub_ct6">
+                콘텐츠6
+              </div>
+            
+            </section>
+          </div>
+          <div id="right">
+            <div id="blackbox2"></div>
+            <div class="subRight">
+              <img src="/static/img/dashboard.svg" alt="통계">
+            </div>
+          </div>
+        </div>
+        
+        <div id="blackbox1"></div>
+  
+        
+
+
+        <section id="st4">
+          <div class="sub_ct7">
+            콘텐츠7
+          </div>
+
+          <div id="blackbox2"></div>
+          <div class="sub_ct8">
+            콘텐츠8
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+  window.addEventListener("resize", () => {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  })
+
+  let subRight = document.querySelector(".subRight");
+  
+  subRight.addEventListener("click",function(){
+    location.href="/first";
+  })
+</script>

@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gugi:400');
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap');
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+  font-size:62.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+ol, ul{
+  list-style: none;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+#wrap {
+  width:100%;
+  height:100%;
+}
+
+header {
+  position:fixed;
+  top:10%;
+  left:15%;
+  width:8%;
+  height:80%;
+  border-radius:1% 0% 0% 1%;
+  background-color:rgba(228, 228, 228,0.3);
+  z-index: 4;
+  /* opacity:0.8; */
+  /* border-radius:15px; */
+  /* box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset; */
+}
+
+header ul {
+  width:100%;
+  height:100%;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+}
+
+header ul li {
+  font-size:200%;
+  text-shadow: 0 1px 0 #CCC, 0 2px 0 #C9C9C9, 0 3px 0 #BBB, 0 4px 0 #B9B9B9, 0 5px 0 #AAA, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+  cursor: pointer;
+  color:#A2A2A2
+}
+
+
+.clicked{
+  color:white;
+}
+
+
+
+main section{
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100vh;
+  /* background-image:url("../img/svbbg1.svg");
+  background-repeat: no-repeat;
+  background-size:cover; */
+
+}
+
+
+
+.subSection {
+  display:flex;
+  /* margin:3% auto; */
+  justify-content:center;
+  align-items: center;
+  width:70%;
+  height:80%;
+  border-radius:3% 1% 1% 3%;
+  /* z-index: -4; */
+  /* background-color:rgba(246,246,246,0.6); */
+}
+
+.subSection img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  z-index: -5;
+}
+
+/* .subSection .dummyBox1{
+  width:10%;
+  height:100%;
+} */
+
+.subSection .sectionBox1{
+  position:relative;
+  display:flex;
+  /* justify-content:; */
+  /* align-items: center; */
+  width:85%;
+  height:100%;
+}
+
+.subSection .sectionBox1 .mainBox1 {
+  width:60%;
+  height:90%;
+  margin-left:10%;
+  font-family: "Black Han Sans",sans-serif;
+  font-size:200%;
+  color:#353535;
+  /* text-align: center; */
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1{
+  margin-bottom:3.7%;
+  width:100%;
+  height:45%;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1{
+  position:relative;
+  /* margin-bottom:5%; */
+  display:flex;
+  align-items: center;
+  margin:0 auto;
+  width:95%;
+  height:100%;
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 .tableBox {
+  margin:0 auto;
+  padding:0;
+  overflow:auto;
+  width:100%;
+  height:90%;
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 .tableBox::-webkit-scrollbar {
+  width: 20px; /*스크롤바의 너비*/
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 .tableBox::-webkit-scrollbar-thumb {
+  background-color:rgba(16, 98, 10,1); /*스크롤바의 색상*/
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 .tableBox::-webkit-scrollbar-track {
+  background-color:rgba(228, 228, 228,0.8); /*스크롤바 트랙 색상*/
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 table{
+  white-space: nowrap;
+  /* border-collapse: collapse; */
+  width:100%;
+  height:100%;
+  font-family: "IBM Plex Sans KR",sans-serif;
+  font-size:70%;
+  color:#353535;
+  border-spacing: 0rem 1rem;
+  /* border:1px solid #000; */
+}
+/* .subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 table thead th{
+  position:sticky;
+  top:0;
+  background-color:gray;
+} */
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 table tr:nth-child(2n){
+  background-color:rgba(16, 98, 10,0.2);
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox1 .Box1_1 table th,td{
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox2{
+  /* margin-top:6%; */
+  width:100%;
+  height:50%;
+  /* font-family: "Black Han Sans",sans-serif; */
+  font-size:100%;
+  color:#353535;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.subSection .sectionBox1 .mainBox1 .subBox2 .Box2_1{
+  width:100%;
+  height:100%;
+  display:flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin:0 auto;
+  /* background-color:black; */
+}
+
+.subSection .sectionBox1 .mainBox2 {
+  position:absolute;
+  left:72.5%;
+  width:35%;
+  height:90%;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  
+} 
+
+.subSection .sectionBox1 .mainBox2 p {
+  margin-left:35%;
+  font-family: "Black Han Sans",sans-serif;
+  font-size:200%;
+  
+
+}
+
+.subSection .sectionBox1 .mainBox2 .Box2_1{
+  display:flex;
+  margin-bottom:30%;
+  width:90%;
+  height:20%;
+}
+
+/* .subSection .sectionBox1 .mainBox2 .LBox2_1{
+  display:flex;
+  margin-left:9.1%;
+  margin-top:6%;
+  width:82%;
+  height:20%;
+} */
+
+
+.subSection .sectionBox1 .mainBox2 .Box2_1 .sub2Cdiv{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  margin-left:5%;
+  width:50%;
+  height:100%;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  /* opacity:0.3; */
+  border-radius:14%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 20px -30px;
+}
+
+.subSection .sectionBox1 .mainBox2 .Box2_1 .sub2Cdiv span{
+  
+  position:absolute;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:32.5%;
+  height:40%;
+  border-radius:50%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-family: "Bruno Ace",sans-serif;
+  font-size:90%;
+}
+
+
+
+/* .subSection .sectionBox1 .mainBox2 .LBox2_1 .sub2Cdiv{
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+  height:100%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 20px -30px;
+}
+
+.subSection .sectionBox1 .mainBox2 .LBox2_1 .sub2Cdiv span {
+  position:absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:40%;
+  height:40%;
+  border-radius:100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-family: "Bruno Ace",sans-serif;
+} */
+
+
+
+@media screen and (max-width:6000px){
+  body{
+    width:100%;
+  }
+}
